@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 // Google Analytics Measurement ID
-const GA_MEASUREMENT_ID = "G-357877550";
+const GA_MEASUREMENT_ID = "G-LM42SES2JY";
 
 export const metadata: Metadata = {
   title: "Madhu Goutham Reddy Ambati | AI/ML Engineer & Data Scientist",
