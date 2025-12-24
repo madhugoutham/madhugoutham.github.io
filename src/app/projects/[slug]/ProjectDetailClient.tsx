@@ -319,7 +319,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
             <div className="min-h-screen flex items-center justify-center bg-[var(--background)] text-[var(--foreground)]">
                 <div className="text-center">
                     <h1 className="text-3xl font-bold mb-4">Project Not Found</h1>
-                    <Link href={BASE_PATH} className="text-[var(--accent)] hover:underline">← Back to Portfolio</Link>
+                    <Link href="/" className="text-[var(--accent)] hover:underline">← Back to Portfolio</Link>
                 </div>
             </div>
         );
@@ -337,7 +337,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
             {/* Header */}
             <header className="border-b border-[var(--border)] sticky top-0 bg-[var(--background)]/95 backdrop-blur-xl z-50">
                 <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-                    <Link href={`${BASE_PATH}/`} className="flex items-center gap-2 text-[var(--foreground-secondary)] hover:text-[var(--accent)] transition-colors">
+                    <Link href="/" className="flex items-center gap-2 text-[var(--foreground-secondary)] hover:text-[var(--accent)] transition-colors">
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                         </svg>
@@ -497,7 +497,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
                             <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" className="btn-primary">
                                 Schedule a Call
                             </a>
-                            <Link href={BASE_PATH} className="btn-secondary">
+                            <Link href="/" className="btn-secondary">
                                 View More Projects
                             </Link>
                             {project.github && (
