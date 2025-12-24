@@ -5,10 +5,9 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  // For GitHub Pages deployment with username.github.io
-  // If deploying to a repo like username.github.io/repo-name, uncomment:
-  // basePath: "/repo-name",
-  // assetPrefix: "/repo-name",
+  // GitHub Pages deployment to madhugoutham.github.io/portfolios
+  basePath: "/portfolios",
+  assetPrefix: "/portfolios",
   trailingSlash: true,
 };
 
