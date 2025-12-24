@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -7,6 +8,9 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
 });
+
+// Google Analytics Measurement ID
+const GA_MEASUREMENT_ID = "G-357877550";
 
 export const metadata: Metadata = {
   title: "Madhu Goutham Reddy Ambati | AI/ML Engineer & Data Scientist",
@@ -22,6 +26,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        {/* Google Analytics 4 */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
+      </head>
       <body className={`${inter.variable} antialiased`}>
         {children}
       </body>
