@@ -176,8 +176,8 @@ export default function Home() {
 
       <div className="container-narrow pt-32 pb-24">
         {/* ===== HERO ===== */}
-        <section className="mb-32 min-h-[80vh] flex flex-col md:flex-row items-center md:items-start md:justify-between gap-8 md:gap-12">
-          <div className="flex-1 md:pt-16 min-w-0">
+        <section className="mb-32 md:min-h-[80vh] flex flex-col md:flex-row items-start md:justify-between gap-12 md:gap-12 pt-8 md:pt-0">
+          <div className="flex-1 md:pt-16 min-w-0 w-full">
             <Reveal>
               <div className="inline-flex items-center gap-2 mb-8 px-3 py-1 bg-zinc-100 dark:bg-zinc-800 rounded-full">
                 <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />

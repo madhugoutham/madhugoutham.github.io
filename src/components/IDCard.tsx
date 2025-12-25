@@ -49,19 +49,19 @@ export default function IDCard() {
             onMouseLeave={handleMouseLeave}
         >
             {/* Lanyard String */}
-            <div className="absolute -top-[20rem] left-1/2 -translate-x-1/2 w-4 h-[20rem] bg-zinc-900 border-x border-zinc-800 origin-bottom flex flex-col items-center justify-end z-[-1]">
-                {/* Tag on lanyard */}
-                <div className="absolute bottom-32 w-8 h-12 bg-zinc-800 rounded flex items-center justify-center hover:bg-zinc-700 hover:scale-110 transition-all cursor-pointer">
+            <div className="absolute -top-[20rem] left-1/2 -translate-x-1/2 w-4 h-[20rem] bg-zinc-900 border-x border-zinc-800 origin-bottom flex flex-col items-center justify-end z-[0]">
+                {/* Tag on lanyard - Lowered position and fixed Z-index */}
+                <div className="absolute bottom-16 w-8 h-12 bg-zinc-800 rounded flex items-center justify-center hover:bg-zinc-700 hover:scale-110 transition-all cursor-pointer shadow-lg z-20">
                     <span className="text-[10px] text-zinc-500 rotate-90 tracking-widest font-mono">LABS</span>
                 </div>
                 {/* Clip */}
-                <div className="w-8 h-8 border-4 border-zinc-800 rounded-lg mb-[-20px] bg-zinc-900" />
+                <div className="w-8 h-8 border-4 border-zinc-800 rounded-lg mb-[-20px] bg-zinc-900 relative z-10" />
             </div>
 
             <motion.div
                 ref={cardRef}
                 style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-                className="w-[300px] h-[450px] bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden relative"
+                className="w-[300px] h-[450px] bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden relative z-10"
             >
                 {/* Card Header */}
                 <div className="h-32 bg-zinc-950 relative overflow-hidden flex items-center justify-center">
@@ -72,8 +72,8 @@ export default function IDCard() {
                     </div>
                 </div>
 
-                {/* Photo Container */}
-                <div className="absolute top-20 left-1/2 -translate-x-1/2 w-32 h-32 bg-white dark:bg-zinc-900 rounded-xl p-1 shadow-lg rotate-3 overflow-hidden z-20">
+                {/* Photo Container - Adjusted Top Position */}
+                <div className="absolute top-24 left-1/2 -translate-x-1/2 w-32 h-32 bg-white dark:bg-zinc-900 rounded-xl p-1 shadow-lg rotate-3 overflow-hidden z-20">
                     <Image
                         src={`${BASE_PATH}/profile.jpg`}
                         alt="Profile"
@@ -84,10 +84,10 @@ export default function IDCard() {
                     />
                 </div>
 
-                {/* Info */}
-                <div className="pt-64 pb-8 px-6 text-center space-y-2 relative z-10">
-                    <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-                        Madhu Goutham
+                {/* Info - Forced Padding using inline style to bypass Tailwind issues */}
+                <div className="pb-8 px-6 text-center space-y-2 relative z-10" style={{ paddingTop: '16rem' }}>
+                    <h2 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 leading-tight">
+                        Madhu Goutham<br />Reddy Ambati
                     </h2>
                     <div className="text-sm font-medium text-zinc-500 tracking-wide uppercase">
                         Senior Data Scientist
