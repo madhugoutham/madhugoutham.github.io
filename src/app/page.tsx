@@ -191,9 +191,9 @@ export default function Home() {
 
             <Reveal delay={0.1}>
               <h1 className="hero-name mb-8">
-                Senior Data Scientist<br />
-                <span className="text-[var(--foreground-muted)]">building ML systems</span><br />
-                <span className="text-[var(--foreground-muted)]">that work.</span>
+                I turn data<br />
+                <span className="text-[var(--foreground-muted)]">into $2M+ decisions.</span><br />
+                <span className="text-[var(--foreground-muted)]">At scale. In production.</span>
               </h1>
             </Reveal>
 

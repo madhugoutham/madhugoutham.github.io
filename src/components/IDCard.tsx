@@ -14,13 +14,13 @@ export default function IDCard() {
     const y = useMotionValue(0);
 
     // Spring physics for smooth "hanging" feel
-    const rotateX = useSpring(useTransform(y, [-100, 100], [15, -15]), {
+    const rotateX = useSpring(useTransform(y, [-100, 100], [8, -8]), {
         stiffness: 150,
         damping: 20,
         mass: 1.5,
     });
 
-    const rotateY = useSpring(useTransform(x, [-100, 100], [-15, 15]), {
+    const rotateY = useSpring(useTransform(x, [-100, 100], [-10, 10]), {
         stiffness: 150,
         damping: 20,
         mass: 1.5,
@@ -43,11 +43,23 @@ export default function IDCard() {
     }
 
     return (
-        <div
-            className="flex flex-col items-center"
+        <motion.div
+            className="flex flex-col items-center origin-top"
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             style={{ perspective: "1000px" }}
+            // Pendulum drop animation - falls from top and swings
+            initial={{ y: -200, rotate: -15, opacity: 0 }}
+            animate={{
+                y: 0,
+                rotate: [null, 12, -8, 5, -3, 0],
+                opacity: 1
+            }}
+            transition={{
+                y: { duration: 0.8, ease: [0.34, 1.56, 0.64, 1] },
+                rotate: { duration: 2, ease: "easeOut", times: [0, 0.2, 0.4, 0.6, 0.8, 1] },
+                opacity: { duration: 0.3 }
+            }}
         >
             {/* Lanyard with Tag - INSIDE NORMAL FLOW */}
             <div className="flex flex-col items-center mb-[-20px] z-10">
@@ -100,7 +112,7 @@ export default function IDCard() {
                     </div>
 
                     <div className="flex justify-center gap-6 text-xs text-zinc-400 font-mono mb-4">
-                        <span>ID: 8492-42</span>
+                        <span>ID: 1212</span>
                         <span>EXP: 6+ YRS</span>
                     </div>
 
@@ -116,6 +128,6 @@ export default function IDCard() {
                     </div>
                 </div>
             </motion.div>
-        </div>
+        </motion.div>
     );
 }
