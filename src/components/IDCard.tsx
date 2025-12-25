@@ -10,11 +10,9 @@ const COPPER = "#a83b00";
 export default function IDCard() {
   const cardRef = useRef<HTMLDivElement>(null);
 
-  // Motion values for interaction
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  // Spring physics for smooth "hanging" feel
   const rotateX = useSpring(useTransform(y, [-100, 100], [4, -4]), {
     stiffness: 100,
     damping: 12,
@@ -47,7 +45,6 @@ export default function IDCard() {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{ perspective: "1200px" }}
-      // Dramatic drop from sky
       initial={{ y: -600, rotate: -30, opacity: 0 }}
       animate={{
         y: 0,
@@ -60,29 +57,28 @@ export default function IDCard() {
         opacity: { duration: 0.5 }
       }}
     >
-      {/* SUPER LONG LANYARD - Extends from sky */}
+      {/* LANYARD from sky */}
       <div className="absolute left-1/2 -translate-x-1/2 bottom-full w-6 flex flex-col items-center" style={{ height: '400px' }}>
         <div className="w-3 flex-1 bg-gradient-to-b from-zinc-600 via-zinc-800 to-zinc-900 rounded-t-full">
           <div className="absolute left-1/2 -translate-x-1/2 w-[1px] h-full bg-gradient-to-b from-zinc-400/50 via-zinc-500/30 to-transparent" />
         </div>
       </div>
 
-      {/* Card container */}
       <div className="flex flex-col items-center origin-top">
-        {/* Connector clip - Grey metallic */}
-        <div className="w-8 h-6 bg-gradient-to-b from-zinc-500 to-zinc-600 rounded-lg shadow-lg mb-[-2px] z-10 flex items-center justify-center">
+        {/* Clip */}
+        <div className="w-8 h-6 bg-gradient-to-b from-zinc-500 to-zinc-600 rounded-md shadow-lg mb-[-2px] z-10 flex items-center justify-center">
           <div className="w-4 h-2 bg-zinc-400 rounded-full" />
         </div>
 
-        {/* Short visible strap */}
+        {/* Strap */}
         <div className="w-3 h-8 bg-gradient-to-b from-zinc-800 to-zinc-900 mb-[-2px]" />
 
-        {/* Tag Badge - AMGR with copper accent */}
+        {/* AMGR Tag with copper */}
         <motion.div
-          className="px-5 py-2.5 rounded-xl flex items-center justify-center shadow-2xl cursor-pointer mb-2 z-10"
+          className="px-5 py-2.5 rounded-md flex items-center justify-center shadow-2xl cursor-pointer mb-2 z-10"
           style={{
-            background: `linear-gradient(135deg, #3f3f46 0%, #27272a 50%, #18181b 100%)`,
-            border: `1px solid ${COPPER}40`
+            background: 'linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%)',
+            border: `1px solid ${COPPER}`
           }}
           whileHover={{ scale: 1.08, y: -3 }}
           whileTap={{ scale: 0.95 }}
@@ -90,87 +86,99 @@ export default function IDCard() {
           <span className="text-xs tracking-[0.25em] font-mono font-bold" style={{ color: COPPER }}>AMGR</span>
         </motion.div>
 
-        {/* Connector to card */}
-        <div className="w-10 h-4 bg-gradient-to-b from-zinc-500 to-zinc-600 rounded-b-xl shadow-md flex items-center justify-center mb-[-8px] z-10">
+        {/* Connector */}
+        <div className="w-10 h-4 bg-gradient-to-b from-zinc-500 to-zinc-600 rounded-b-md shadow-md flex items-center justify-center mb-[-8px] z-10">
           <div className="w-5 h-1.5 bg-zinc-400 rounded-full" />
         </div>
 
-        {/* VERTICAL ID Card - Deep grey shining look */}
+        {/* DUAL TONE VERTICAL ID CARD - Real ID shape */}
         <motion.div
           ref={cardRef}
           style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-          className="w-[300px] rounded-xl shadow-2xl overflow-hidden relative"
+          className="w-[280px] h-[380px] rounded-md shadow-2xl overflow-hidden relative"
         >
-          {/* Shiny gradient background */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background: 'linear-gradient(145deg, #404040 0%, #2a2a2a 25%, #1a1a1a 50%, #252525 75%, #333333 100%)'
-            }}
-          />
+          {/* Copper border */}
+          <div className="absolute inset-0 rounded-md" style={{ border: `2px solid ${COPPER}` }} />
 
-          {/* Shine overlay */}
+          {/* TOP HALF - Deep Black */}
           <div
-            className="absolute inset-0 opacity-30"
+            className="absolute top-0 left-0 right-0 h-1/2"
             style={{
-              background: 'linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.1) 40%, transparent 60%)'
+              background: 'linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 50%, #151515 100%)'
             }}
-          />
+          >
+            {/* Subtle texture */}
+            <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_2px_2px,_#333_0.5px,_transparent_0)] bg-[size:8px_8px]" />
 
-          {/* Card Header with copper accent */}
-          <div className="relative h-24 flex items-center justify-center overflow-hidden">
-            <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_2px_2px,_#555_0.5px,_transparent_0)] bg-[size:6px_6px]" />
-            {/* Copper accent line at top */}
-            <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: `linear-gradient(90deg, transparent, ${COPPER}, transparent)` }} />
-            <div className="font-bold tracking-widest text-base z-10 flex items-center gap-2" style={{ color: '#e4e4e7' }}>
-              <span className="w-2 h-2 rounded-full animate-pulse shadow-lg" style={{ backgroundColor: COPPER, boxShadow: `0 0 10px ${COPPER}80` }} />
-              ENGINEER
+            {/* ENGINEER Header */}
+            <div className="absolute top-0 left-0 right-0 h-20 flex items-center justify-center">
+              <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: `linear-gradient(90deg, transparent, ${COPPER}, transparent)` }} />
+              <div className="font-bold tracking-widest text-sm flex items-center gap-2" style={{ color: '#e4e4e7' }}>
+                <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: COPPER, boxShadow: `0 0 10px ${COPPER}` }} />
+                ENGINEER
+              </div>
             </div>
           </div>
 
-          {/* Photo Container */}
-          <div className="relative flex justify-center" style={{ marginTop: "-36px" }}>
+          {/* BOTTOM HALF - Shining Silver Grey */}
+          <div
+            className="absolute bottom-0 left-0 right-0 h-1/2"
+            style={{
+              background: 'linear-gradient(180deg, #a1a1aa 0%, #d4d4d8 30%, #e4e4e7 50%, #d4d4d8 70%, #a1a1aa 100%)'
+            }}
+          >
+            {/* Shine effect */}
             <div
-              className="w-24 h-24 rounded-xl p-1 shadow-xl rotate-2 overflow-hidden"
+              className="absolute inset-0"
+              style={{
+                background: 'linear-gradient(135deg, transparent 30%, rgba(255,255,255,0.4) 45%, transparent 60%)'
+              }}
+            />
+          </div>
+
+          {/* Photo - Centered at the half line */}
+          <div className="absolute left-1/2 -translate-x-1/2" style={{ top: 'calc(50% - 50px)' }}>
+            <div
+              className="w-[100px] h-[100px] rounded-md p-1 shadow-xl overflow-hidden"
               style={{
                 background: 'linear-gradient(135deg, #3a3a3a, #2a2a2a)',
-                border: `2px solid ${COPPER}60`
+                border: `2px solid ${COPPER}`
               }}
             >
               <Image
                 src={`${BASE_PATH}/profile.jpg`}
                 alt="Profile"
-                width={96}
-                height={96}
-                className="w-full h-full object-cover rounded-lg"
+                width={100}
+                height={100}
+                className="w-full h-full object-cover rounded-sm"
                 priority
               />
             </div>
           </div>
 
-          {/* Info with copper text */}
-          <div className="relative pt-4 pb-6 px-6 text-center">
-            <h2 className="text-lg font-bold tracking-tight leading-tight mb-1" style={{ color: '#fafafa' }}>
+          {/* Info on bottom silver section */}
+          <div className="absolute bottom-0 left-0 right-0 h-[calc(50%-60px)] flex flex-col items-center justify-center px-6 text-center">
+            <h2 className="text-base font-bold tracking-tight leading-tight mb-1" style={{ color: '#18181b' }}>
               Madhu Goutham Reddy Ambati
             </h2>
-            <div className="text-xs font-semibold tracking-wide uppercase mb-4" style={{ color: COPPER }}>
+            <div className="text-[11px] font-semibold tracking-wide uppercase mb-3" style={{ color: COPPER }}>
               Senior Data Scientist
             </div>
 
-            <div className="flex justify-center gap-6 text-xs font-mono font-semibold mb-4" style={{ color: '#a1a1aa' }}>
+            <div className="flex justify-center gap-5 text-[10px] font-mono font-semibold mb-3" style={{ color: '#3f3f46' }}>
               <span>ID: 1212</span>
               <span>EXP: 6+ YRS</span>
             </div>
 
-            {/* Barcode with copper tint */}
-            <div className="h-6 w-full flex justify-center gap-[2px] opacity-50">
-              {[...Array(30)].map((_, i) => (
+            {/* Barcode */}
+            <div className="h-5 w-3/4 flex justify-center gap-[1px] opacity-60">
+              {[...Array(35)].map((_, i) => (
                 <div
                   key={i}
                   style={{
                     width: "2px",
-                    height: `${25 + Math.random() * 75}%`,
-                    backgroundColor: i % 5 === 0 ? COPPER : '#71717a'
+                    height: `${30 + Math.random() * 70}%`,
+                    backgroundColor: i % 6 === 0 ? COPPER : '#52525b'
                   }}
                 />
               ))}
@@ -178,7 +186,7 @@ export default function IDCard() {
           </div>
 
           {/* Bottom copper accent */}
-          <div className="absolute bottom-0 left-0 right-0 h-[2px]" style={{ background: `linear-gradient(90deg, transparent, ${COPPER}60, transparent)` }} />
+          <div className="absolute bottom-0 left-0 right-0 h-[3px]" style={{ background: `linear-gradient(90deg, transparent, ${COPPER}, transparent)` }} />
         </motion.div>
       </div>
     </motion.div>
