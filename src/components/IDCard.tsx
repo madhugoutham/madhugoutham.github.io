@@ -84,7 +84,7 @@ export default function IDCard() {
                     whileHover={{ scale: 1.08, y: -3 }}
                     whileTap={{ scale: 0.95 }}
                 >
-                    <span className="text-xs text-zinc-300 tracking-[0.25em] font-mono font-bold">LABS</span>
+                    <span className="text-xs text-zinc-300 tracking-[0.25em] font-mono font-bold">AMGR</span>
                 </motion.div>
 
                 {/* Connector to card - Grey */}
@@ -92,11 +92,11 @@ export default function IDCard() {
                     <div className="w-5 h-1.5 bg-zinc-400 rounded-full" />
                 </div>
 
-                {/* Card - Black/Grey Dual Tone */}
+                {/* Card - Rectangular like real ID card */}
                 <motion.div
                     ref={cardRef}
                     style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-                    className="w-[280px] bg-gradient-to-br from-zinc-200 via-zinc-100 to-zinc-200 dark:from-zinc-800 dark:via-zinc-850 dark:to-zinc-900 rounded-2xl shadow-2xl border border-zinc-300 dark:border-zinc-700 overflow-hidden relative"
+                    className="w-[320px] bg-gradient-to-br from-zinc-200 via-zinc-100 to-zinc-200 dark:from-zinc-800 dark:via-zinc-850 dark:to-zinc-900 rounded-lg shadow-2xl border border-zinc-300 dark:border-zinc-700 overflow-hidden relative"
                 >
                     {/* Card Header - Dark grey gradient */}
                     <div className="h-28 bg-gradient-to-br from-zinc-800 via-zinc-900 to-zinc-950 relative overflow-hidden flex items-center justify-center">
@@ -123,16 +123,16 @@ export default function IDCard() {
                         </div>
                     </div>
 
-                    {/* Info */}
+                    {/* Info - Deep dark fading text */}
                     <div className="pt-4 pb-6 px-6 text-center">
-                        <h2 className="text-lg font-bold tracking-tight text-zinc-800 dark:text-zinc-100 leading-tight mb-1" style={{ textShadow: '0 1px 0 rgba(255,255,255,0.5)' }}>
+                        <h2 className="text-lg font-bold tracking-tight text-zinc-950 dark:text-zinc-50 leading-tight mb-1">
                             Madhu Goutham Reddy Ambati
                         </h2>
-                        <div className="text-xs font-semibold text-zinc-700 dark:text-zinc-300 tracking-wide uppercase mb-4" style={{ textShadow: '0 1px 0 rgba(255,255,255,0.3)' }}>
+                        <div className="text-xs font-semibold text-zinc-800 dark:text-zinc-200 tracking-wide uppercase mb-4">
                             Senior Data Scientist
                         </div>
 
-                        <div className="flex justify-center gap-6 text-xs text-zinc-600 dark:text-zinc-400 font-mono font-medium mb-4">
+                        <div className="flex justify-center gap-6 text-xs text-zinc-700 dark:text-zinc-300 font-mono font-semibold mb-4">
                             <span>ID: 1212</span>
                             <span>EXP: 6+ YRS</span>
                         </div>
