@@ -191,9 +191,9 @@ export default function Home() {
 
             <Reveal delay={0.1}>
               <h1 className="hero-name mb-8">
-                I turn data<br />
-                <span className="text-[var(--foreground-muted)]">into $2M+ decisions.</span><br />
-                <span className="text-[var(--foreground-muted)]">At scale. In production.</span>
+                ML at 50M+ scale.<br />
+                <span className="text-[var(--foreground-muted)]">Production systems.</span><br />
+                <span className="text-[var(--foreground-muted)]">Real business impact.</span>
               </h1>
             </Reveal>
 

@@ -14,16 +14,16 @@ export default function IDCard() {
     const y = useMotionValue(0);
 
     // Spring physics for smooth "hanging" feel
-    const rotateX = useSpring(useTransform(y, [-100, 100], [8, -8]), {
-        stiffness: 150,
-        damping: 20,
-        mass: 1.5,
+    const rotateX = useSpring(useTransform(y, [-100, 100], [5, -5]), {
+        stiffness: 120,
+        damping: 15,
+        mass: 1,
     });
 
-    const rotateY = useSpring(useTransform(x, [-100, 100], [-10, 10]), {
-        stiffness: 150,
-        damping: 20,
-        mass: 1.5,
+    const rotateY = useSpring(useTransform(x, [-100, 100], [-8, 8]), {
+        stiffness: 120,
+        damping: 15,
+        mass: 1,
     });
 
     function handleMouseMove(event: React.MouseEvent<HTMLDivElement>) {
@@ -47,50 +47,69 @@ export default function IDCard() {
             className="flex flex-col items-center origin-top"
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            style={{ perspective: "1000px" }}
-            // Pendulum drop animation - falls from top and swings
-            initial={{ y: -200, rotate: -15, opacity: 0 }}
+            style={{ perspective: "1200px" }}
+            // Enhanced drop from top - like badge falling from ceiling
+            initial={{ y: -400, rotate: -25, opacity: 0, scale: 0.8 }}
             animate={{
                 y: 0,
-                rotate: [null, 12, -8, 5, -3, 0],
-                opacity: 1
+                rotate: [null, 20, -15, 10, -6, 3, 0],
+                opacity: 1,
+                scale: 1
             }}
             transition={{
-                y: { duration: 0.8, ease: [0.34, 1.56, 0.64, 1] },
-                rotate: { duration: 2, ease: "easeOut", times: [0, 0.2, 0.4, 0.6, 0.8, 1] },
-                opacity: { duration: 0.3 }
+                y: { duration: 1.2, ease: [0.22, 1, 0.36, 1] },
+                rotate: { duration: 2.5, ease: "easeOut", times: [0, 0.15, 0.3, 0.5, 0.7, 0.85, 1] },
+                opacity: { duration: 0.4 },
+                scale: { duration: 0.8, ease: "easeOut" }
             }}
         >
-            {/* Lanyard with Tag - INSIDE NORMAL FLOW */}
-            <div className="flex flex-col items-center mb-[-20px] z-10">
-                {/* Tag - Horizontal text for visibility */}
-                <div className="px-3 py-2 bg-zinc-800 rounded-lg flex items-center justify-center mb-2 hover:bg-zinc-700 hover:scale-105 transition-all cursor-pointer shadow-lg border border-zinc-700">
-                    <span className="text-[10px] text-zinc-300 tracking-widest font-mono font-bold">LABS</span>
+            {/* Lanyard - Dual Tone Black/Silver */}
+            <div className="flex flex-col items-center mb-[-16px] z-10">
+                {/* Clip at top - Silver metallic */}
+                <div className="w-6 h-4 bg-gradient-to-b from-zinc-300 to-zinc-400 rounded-sm shadow-md" />
+
+                {/* Lanyard Strap - Black with silver edge */}
+                <div className="relative w-4 h-20">
+                    <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-800 to-zinc-950 rounded-sm" />
+                    <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-zinc-500/50" />
+                    <div className="absolute right-0 top-0 bottom-0 w-[1px] bg-zinc-500/50" />
                 </div>
-                {/* Lanyard Strap */}
-                <div className="w-3 h-16 bg-zinc-900 rounded-sm" />
-                {/* Clip */}
-                <div className="w-8 h-6 border-4 border-zinc-700 bg-zinc-800 rounded-md" />
+
+                {/* Tag Badge - Black/Silver dual tone */}
+                <motion.div
+                    className="px-4 py-2 bg-gradient-to-br from-zinc-800 via-zinc-900 to-zinc-950 rounded-lg flex items-center justify-center shadow-xl border border-zinc-600/50 cursor-pointer"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                >
+                    <span className="text-[10px] text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 to-zinc-100 tracking-[0.2em] font-mono font-bold">LABS</span>
+                </motion.div>
+
+                {/* Connector - Silver clip */}
+                <div className="w-10 h-5 bg-gradient-to-b from-zinc-400 to-zinc-500 rounded-b-lg mt-1 shadow-md flex items-center justify-center">
+                    <div className="w-6 h-2 bg-zinc-300 rounded-full" />
+                </div>
             </div>
 
-            {/* Card */}
+            {/* Card - Black/Silver Dual Tone */}
             <motion.div
                 ref={cardRef}
                 style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-                className="w-[280px] bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden relative"
+                className="w-[280px] bg-gradient-to-br from-zinc-100 via-white to-zinc-200 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 rounded-2xl shadow-2xl border border-zinc-300 dark:border-zinc-700 overflow-hidden relative"
             >
-                {/* Card Header */}
-                <div className="h-28 bg-zinc-950 relative overflow-hidden flex items-center justify-center">
-                    <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_2px_2px,_#444_1px,_transparent_0)] bg-[size:12px_12px]" />
-                    <div className="text-white font-bold tracking-widest text-lg z-10 flex items-center gap-2">
-                        <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                {/* Card Header - Metallic black gradient */}
+                <div className="h-28 bg-gradient-to-br from-zinc-900 via-zinc-950 to-black relative overflow-hidden flex items-center justify-center">
+                    <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_2px_2px,_#555_1px,_transparent_0)] bg-[size:10px_10px]" />
+                    {/* Silver accent line */}
+                    <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-zinc-400 to-transparent" />
+                    <div className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-300 to-white font-bold tracking-widest text-lg z-10 flex items-center gap-2">
+                        <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse shadow-lg shadow-emerald-400/50" />
                         ENGINEER
                     </div>
                 </div>
 
-                {/* Photo Container - Overlapping Header */}
+                {/* Photo Container */}
                 <div className="relative flex justify-center" style={{ marginTop: "-48px" }}>
-                    <div className="w-24 h-24 bg-white dark:bg-zinc-800 rounded-xl p-1 shadow-xl rotate-3 overflow-hidden border-4 border-white dark:border-zinc-800">
+                    <div className="w-24 h-24 bg-gradient-to-br from-zinc-200 to-zinc-100 dark:from-zinc-700 dark:to-zinc-800 rounded-xl p-1 shadow-xl rotate-3 overflow-hidden border-2 border-zinc-300 dark:border-zinc-600">
                         <Image
                             src={`${BASE_PATH}/profile.jpg`}
                             alt="Profile"
@@ -116,13 +135,13 @@ export default function IDCard() {
                         <span>EXP: 6+ YRS</span>
                     </div>
 
-                    {/* Barcode */}
-                    <div className="h-6 w-full flex justify-center gap-[2px] opacity-40">
+                    {/* Barcode - Silver tones */}
+                    <div className="h-6 w-full flex justify-center gap-[2px] opacity-50">
                         {[...Array(30)].map((_, i) => (
                             <div
                                 key={i}
-                                className="bg-zinc-900 dark:bg-zinc-100"
-                                style={{ width: "2px", height: `${20 + Math.random() * 80}%` }}
+                                className="bg-gradient-to-b from-zinc-700 to-zinc-900 dark:from-zinc-300 dark:to-zinc-500"
+                                style={{ width: "2px", height: `${25 + Math.random() * 75}%` }}
                             />
                         ))}
                     </div>
