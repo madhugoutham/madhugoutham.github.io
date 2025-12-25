@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import IDCard from "@/components/IDCard";
 
 // ============== CONSTANTS ==============
 const BASE_PATH = "/portfolios";
@@ -114,11 +115,11 @@ function ThemeToggle({ theme, onToggle }: { theme: string; onToggle: () => void 
   return (
     <button onClick={onToggle} className="theme-toggle" aria-label="Toggle theme">
       {theme === "dark" ? (
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
         </svg>
       ) : (
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
         </svg>
       )}
@@ -160,61 +161,67 @@ export default function Home() {
 
       <div className="container-narrow pt-32 pb-24">
         {/* ===== HERO ===== */}
-        <section className="mb-32">
-          <Reveal>
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-16 h-16 rounded-full overflow-hidden border border-[var(--border)]">
-                <Image
-                  src={`${BASE_PATH}/profile.jpg`}
-                  alt="Madhu Goutham"
-                  width={64}
-                  height={64}
-                  className="w-full h-full object-cover"
-                  priority
-                />
+        <section className="mb-32 min-h-[80vh] flex flex-col md:flex-row items-center md:items-start md:justify-between gap-12">
+          <div className="flex-1 md:pt-16 max-w-lg">
+            <Reveal>
+              <div className="inline-flex items-center gap-2 mb-8 px-3 py-1 bg-zinc-100 dark:bg-zinc-800 rounded-full">
+                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400">Open to opportunities</span>
               </div>
-              <div className="flex gap-2">
-                {socialLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    target={link.href.startsWith("http") ? "_blank" : undefined}
-                    rel="noopener noreferrer"
-                    className="social-icon"
-                    aria-label={link.name}
-                  >
-                    <Icon name={link.icon} className="w-5 h-5" />
-                  </a>
-                ))}
+            </Reveal>
+
+            <Reveal delay={0.1}>
+              <h1 className="hero-name mb-8">
+                Senior Data Scientist<br />
+                <span className="text-[var(--foreground-muted)]">building ML systems</span><br />
+                <span className="text-[var(--foreground-muted)]">that work.</span>
+              </h1>
+            </Reveal>
+
+            <Reveal delay={0.2}>
+              <p className="body-text mb-8">
+                6+ years deploying ML at scale. Currently at KeyBank,
+                previously Experian. Specialized in fraud detection, real-time scoring, and GenAI.
+              </p>
+            </Reveal>
+
+            <Reveal delay={0.3}>
+              <div className="flex items-center gap-4">
+                <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" className="btn bg-[var(--foreground)] text-[var(--background)] border-transparent hover:opacity-90">
+                  Schedule a Call
+                </a>
+                <div className="flex gap-4 px-4 border-l border-[var(--border)]">
+                  {socialLinks.map((link) => (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      target={link.href.startsWith("http") ? "_blank" : undefined}
+                      rel="noopener noreferrer"
+                      className="social-icon hover:scale-110 transition-transform"
+                      aria-label={link.name}
+                    >
+                      <Icon name={link.icon} className="w-5 h-5" />
+                    </a>
+                  ))}
+                </div>
               </div>
+            </Reveal>
+          </div>
+
+          <Reveal delay={0.4}>
+            <div className="hidden md:block pt-12">
+              <IDCard />
             </div>
-          </Reveal>
-
-          <Reveal delay={0.1}>
-            <h1 className="hero-name mb-6">
-              Senior Data Scientist<br />
-              <span className="text-[var(--foreground-muted)]">building ML systems</span><br />
-              <span className="text-[var(--foreground-muted)]">that work in production.</span>
-            </h1>
-          </Reveal>
-
-          <Reveal delay={0.2}>
-            <p className="body-text max-w-lg mb-8">
-              6+ years deploying large-scale ML systems. Currently at KeyBank,
-              previously Experian. Specialized in fraud detection, real-time scoring, and GenAI.
-            </p>
-          </Reveal>
-
-          <Reveal delay={0.3}>
-            <div className="flex flex-wrap gap-3">
-              <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" className="btn">
-                Schedule a Call
-                <Icon name="arrow" className="w-4 h-4" />
-              </a>
-              <a href={`${BASE_PATH}/resume.pdf`} download className="btn">
-                <Icon name="download" className="w-4 h-4" />
-                Resume
-              </a>
+            {/* Mobile Fallback */}
+            <div className="block md:hidden w-40 h-40 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 rotate-3 mx-auto">
+              <Image
+                src={`${BASE_PATH}/profile.jpg`}
+                alt="Profile"
+                width={160}
+                height={160}
+                className="w-full h-full object-cover"
+                priority
+              />
             </div>
           </Reveal>
         </section>
@@ -301,7 +308,7 @@ export default function Home() {
           <Reveal delay={0.1}>
             <p className="body-text mb-6">
               Open to new opportunities and collaborations.
-              Feel free to reach out.
+              Feel free to reach out directly.
             </p>
           </Reveal>
           <Reveal delay={0.2}>
