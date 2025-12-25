@@ -5,9 +5,8 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  // GitHub Pages deployment to madhugoutham.github.io/portfolios
-  basePath: "/portfolios",
-  assetPrefix: "/portfolios",
+  // GitHub Pages deployment to madhugoutham.github.io (root)
+  // No basePath needed for root deployment
   trailingSlash: true,
 };
 

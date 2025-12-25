@@ -4,7 +4,7 @@ import { motion, useSpring, useTransform, useMotionValue } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 
-const BASE_PATH = "/portfolios";
+const BASE_PATH = "";
 const COPPER = "#a83b00";
 
 export default function IDCard() {
