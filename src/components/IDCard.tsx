@@ -61,9 +61,7 @@ export default function IDCard() {
         >
             {/* SUPER LONG LANYARD - Extends from sky (above viewport) */}
             <div className="absolute left-1/2 -translate-x-1/2 bottom-full w-6 flex flex-col items-center" style={{ height: '400px' }}>
-                {/* Long strap going up into the sky */}
                 <div className="w-3 flex-1 bg-gradient-to-b from-zinc-600 via-zinc-800 to-zinc-900 rounded-t-full">
-                    {/* Grey accent lines */}
                     <div className="absolute left-1/2 -translate-x-1/2 w-[1px] h-full bg-gradient-to-b from-zinc-400/50 via-zinc-500/30 to-transparent" />
                 </div>
             </div>
@@ -76,9 +74,9 @@ export default function IDCard() {
                 </div>
 
                 {/* Short visible strap */}
-                <div className="w-3 h-8 bg-gradient-to-b from-zinc-800 to-zinc-900 mb-[-2px]" />
+                <div className="w-3 h-6 bg-gradient-to-b from-zinc-800 to-zinc-900 mb-[-2px]" />
 
-                {/* Tag Badge - Black/Grey */}
+                {/* Tag Badge - AMGR */}
                 <motion.div
                     className="px-5 py-2.5 bg-gradient-to-br from-zinc-700 via-zinc-800 to-zinc-900 rounded-xl flex items-center justify-center shadow-2xl border border-zinc-600 cursor-pointer mb-2 z-10"
                     whileHover={{ scale: 1.08, y: -3 }}
@@ -87,65 +85,65 @@ export default function IDCard() {
                     <span className="text-xs text-zinc-300 tracking-[0.25em] font-mono font-bold">AMGR</span>
                 </motion.div>
 
-                {/* Connector to card - Grey */}
-                <div className="w-10 h-4 bg-gradient-to-b from-zinc-500 to-zinc-600 rounded-b-xl shadow-md flex items-center justify-center mb-[-8px] z-10">
-                    <div className="w-5 h-1.5 bg-zinc-400 rounded-full" />
+                {/* Connector to card */}
+                <div className="w-10 h-3 bg-gradient-to-b from-zinc-500 to-zinc-600 rounded-b-xl shadow-md flex items-center justify-center mb-[-6px] z-10">
+                    <div className="w-5 h-1 bg-zinc-400 rounded-full" />
                 </div>
 
-                {/* Card - Rectangular like real ID card */}
+                {/* HORIZONTAL ID Card - Credit card style */}
                 <motion.div
                     ref={cardRef}
                     style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-                    className="w-[320px] bg-gradient-to-br from-zinc-200 via-zinc-100 to-zinc-200 dark:from-zinc-800 dark:via-zinc-850 dark:to-zinc-900 rounded-lg shadow-2xl border border-zinc-300 dark:border-zinc-700 overflow-hidden relative"
+                    className="w-[380px] h-[220px] bg-zinc-100 dark:bg-zinc-850 rounded-lg shadow-2xl border border-zinc-300 dark:border-zinc-700 overflow-hidden relative"
                 >
-                    {/* Card Header - Dark grey gradient */}
-                    <div className="h-28 bg-gradient-to-br from-zinc-800 via-zinc-900 to-zinc-950 relative overflow-hidden flex items-center justify-center">
-                        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_2px_2px,_#666_1px,_transparent_0)] bg-[size:8px_8px]" />
-                        {/* Grey accent line */}
-                        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-zinc-500 to-transparent" />
-                        <div className="text-zinc-200 font-bold tracking-widest text-lg z-10 flex items-center gap-2">
-                            <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse shadow-lg shadow-emerald-400/40" />
-                            ENGINEER
-                        </div>
+                    {/* Matte texture overlay */}
+                    <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(circle_at_1px_1px,_#000_0.5px,_transparent_0)] bg-[size:4px_4px] pointer-events-none" />
+
+                    {/* Left side - Dark header stripe */}
+                    <div className="absolute left-0 top-0 bottom-0 w-[100px] bg-gradient-to-b from-zinc-800 via-zinc-900 to-zinc-950 flex flex-col items-center justify-center">
+                        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_2px_2px,_#666_1px,_transparent_0)] bg-[size:6px_6px]" />
+                        <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse shadow-lg shadow-emerald-400/40 mb-2" />
+                        <span className="text-zinc-300 font-bold tracking-widest text-[10px] writing-mode-vertical" style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}>ENGINEER</span>
                     </div>
 
-                    {/* Photo Container */}
-                    <div className="relative flex justify-center" style={{ marginTop: "-48px" }}>
-                        <div className="w-24 h-24 bg-gradient-to-br from-zinc-300 to-zinc-200 dark:from-zinc-700 dark:to-zinc-600 rounded-xl p-1 shadow-xl rotate-3 overflow-hidden border-2 border-zinc-400 dark:border-zinc-500">
+                    {/* Main content area */}
+                    <div className="ml-[100px] h-full flex items-center p-5 gap-5">
+                        {/* Photo */}
+                        <div className="w-[90px] h-[90px] bg-zinc-200 dark:bg-zinc-700 rounded-lg p-1 shadow-lg overflow-hidden border-2 border-zinc-300 dark:border-zinc-600 flex-shrink-0">
                             <Image
                                 src={`${BASE_PATH}/profile.jpg`}
                                 alt="Profile"
-                                width={96}
-                                height={96}
-                                className="w-full h-full object-cover rounded-lg"
+                                width={90}
+                                height={90}
+                                className="w-full h-full object-cover rounded-md"
                                 priority
                             />
                         </div>
-                    </div>
 
-                    {/* Info - Deep dark fading text */}
-                    <div className="pt-4 pb-6 px-6 text-center">
-                        <h2 className="text-lg font-bold tracking-tight text-zinc-950 dark:text-zinc-50 leading-tight mb-1">
-                            Madhu Goutham Reddy Ambati
-                        </h2>
-                        <div className="text-xs font-semibold text-zinc-800 dark:text-zinc-200 tracking-wide uppercase mb-4">
-                            Senior Data Scientist
-                        </div>
+                        {/* Info - Copper/Burnt orange text (#a83b00) */}
+                        <div className="flex-1 min-w-0">
+                            <h2 className="text-base font-bold tracking-tight leading-tight mb-1" style={{ color: '#a83b00' }}>
+                                Madhu Goutham Reddy Ambati
+                            </h2>
+                            <div className="text-[11px] font-semibold tracking-wide uppercase mb-3" style={{ color: '#a83b00', opacity: 0.85 }}>
+                                Senior Data Scientist
+                            </div>
 
-                        <div className="flex justify-center gap-6 text-xs text-zinc-700 dark:text-zinc-300 font-mono font-semibold mb-4">
-                            <span>ID: 1212</span>
-                            <span>EXP: 6+ YRS</span>
-                        </div>
+                            <div className="flex gap-4 text-[10px] font-mono font-semibold" style={{ color: '#a83b00', opacity: 0.75 }}>
+                                <span>ID: 1212</span>
+                                <span>EXP: 6+ YRS</span>
+                            </div>
 
-                        {/* Barcode - Grey tones */}
-                        <div className="h-6 w-full flex justify-center gap-[2px] opacity-50">
-                            {[...Array(30)].map((_, i) => (
-                                <div
-                                    key={i}
-                                    className="bg-zinc-700 dark:bg-zinc-400"
-                                    style={{ width: "2px", height: `${25 + Math.random() * 75}%` }}
-                                />
-                            ))}
+                            {/* Barcode */}
+                            <div className="h-4 w-full flex gap-[1px] mt-3 opacity-40">
+                                {[...Array(40)].map((_, i) => (
+                                    <div
+                                        key={i}
+                                        className="bg-zinc-700 dark:bg-zinc-400"
+                                        style={{ width: "2px", height: `${40 + Math.random() * 60}%` }}
+                                    />
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </motion.div>
