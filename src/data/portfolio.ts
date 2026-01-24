@@ -160,7 +160,7 @@ export const experience = [
         title: "Senior Data Scientist",
         company: "KeyBank",
         period: "Nov 2024 - Present",
-        location: "Remote",
+        location: "USA",
         highlights: [
             "Reduced false positives from 5% to 2% in fraud detection system",
             "Developed loan default prediction model with 0.85 AUC",
@@ -171,7 +171,7 @@ export const experience = [
         title: "Data Scientist (GRA)",
         company: "Northern Illinois University",
         period: "Aug 2023 - Oct 2024",
-        location: "Illinois",
+        location: "USA",
         highlights: [
             "Built environmental health risk models achieving 0.92 AUC",
             "Developed U-Net++ CNN for water detection (93.6% F1-score)",

@@ -24,7 +24,7 @@ const experiencesData: Record<string, {
         company: "KeyBank",
         role: "Senior Data Scientist",
         period: "2024 — Present",
-        location: "Cleveland, OH",
+        location: "USA",
         overview: "Leading enterprise ML initiatives for fraud detection and risk management, building production systems that process 250K+ daily transactions with real-time inference.",
         achievements: [
             { metric: "2%", label: "False Positive Rate", description: "Reduced from 15% using ensemble methods" },
@@ -53,7 +53,7 @@ const experiencesData: Record<string, {
         company: "Northern Illinois University",
         role: "Data Scientist (Graduate Research)",
         period: "2023 — 2024",
-        location: "DeKalb, IL",
+        location: "USA",
         overview: "Conducted research on AI-driven environmental mapping using satellite imagery, resulting in published papers and award-winning models.",
         achievements: [
             { metric: "93.6%", label: "F1-Score", description: "Surface water detection model" },
@@ -81,7 +81,7 @@ const experiencesData: Record<string, {
         company: "TCS / Experian",
         role: "Data Scientist",
         period: "2021 — 2023",
-        location: "Hyderabad, India",
+        location: "India",
         overview: "Built high-throughput fraud scoring systems processing 50M+ monthly events, implementing streaming ML pipelines with sub-100ms latency.",
         achievements: [
             { metric: "$2.3M", label: "Annual Savings", description: "Fraud prevention at Experian" },
@@ -110,7 +110,7 @@ const experiencesData: Record<string, {
         company: "Stanley Black & Decker",
         role: "Data Scientist",
         period: "2019 — 2021",
-        location: "Bangalore, India",
+        location: "India",
         overview: "Developed marketing analytics and prediction models for demand forecasting and customer segmentation across global markets.",
         achievements: [
             { metric: "85%", label: "Model Accuracy", description: "Marketing response prediction" },
