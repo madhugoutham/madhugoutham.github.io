@@ -13,7 +13,7 @@ const inter = Inter({
 const GA_MEASUREMENT_ID = "G-LM42SES2JY";
 
 export const metadata: Metadata = {
-  title: "Madhu Goutham Reddy Ambati | AI/ML Engineer & Data Scientist",
+  title: "Madhu Goutham Reddy Ambati | Machine Learning Engineer",
   description: "Senior AI/ML Engineer with 6+ years experience deploying large-scale ML systems. Reduced fraud losses by $2.1M annually. Specialized in LLM fine-tuning, multi-agent orchestration, and production MLOps.",
   keywords: ["AI Engineer", "ML Engineer", "Data Scientist", "Machine Learning", "Deep Learning", "LLM", "MLOps"],
   authors: [{ name: "Madhu Goutham Reddy Ambati" }],

@@ -162,7 +162,7 @@ export default function IDCard() {
               Madhu Goutham Reddy Ambati
             </h2>
             <div className="text-[11px] font-semibold tracking-wide uppercase mb-3" style={{ color: COPPER }}>
-              Senior Data Scientist
+              Machine Learning Engineer
             </div>
 
             <div className="flex justify-center gap-5 text-[10px] font-mono font-semibold mb-3" style={{ color: '#3f3f46' }}>

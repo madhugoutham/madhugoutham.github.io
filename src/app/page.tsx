@@ -19,21 +19,21 @@ const experiences = [
   {
     id: "keybank",
     company: "KeyBank",
-    role: "Senior Data Scientist",
+    role: "Machine Learning Engineer",
     period: "2024 — Present",
     description: "Leading fraud detection ML initiatives, reducing false positives to 2%",
   },
   {
     id: "niu",
     company: "Northern Illinois University",
-    role: "Data Scientist (GRA)",
+    role: "Machine Learning Engineer",
     period: "2023 — 2024",
     description: "Published research on environmental AI, won 3rd prize at IIN 2024",
   },
   {
     id: "tcs-experian",
     company: "TCS / Experian",
-    role: "Data Scientist",
+    role: "Machine Learning Engineer",
     period: "2021 — 2023",
     description: "Built fraud scoring system saving $2.3M annually",
   },
@@ -199,7 +199,7 @@ export default function Home() {
 
             <Reveal delay={0.2}>
               <p className="body-text mb-8">
-                Senior Data Scientist helping financial institutions prevent fraud at scale.
+                Machine Learning Engineer helping financial institutions prevent fraud at scale.
                 6+ years at KeyBank, Experian, & TCS. Specialized in real-time scoring and GenAI.
               </p>
             </Reveal>

@@ -157,18 +157,18 @@ export const skills = {
 
 export const experience = [
     {
-        title: "Senior Data Scientist",
+        title: "Machine Learning Engineer",
         company: "KeyBank",
         period: "Nov 2024 - Present",
         location: "USA",
         highlights: [
             "Reduced false positives from 5% to 2% in fraud detection system",
             "Developed loan default prediction model with 0.85 AUC",
-            "Lead cross-functional team of 5 data scientists",
+            "Lead cross-functional team of 5 ML engineers",
         ],
     },
     {
-        title: "Data Scientist (GRA)",
+        title: "Machine Learning Engineer",
         company: "Northern Illinois University",
         period: "Aug 2023 - Oct 2024",
         location: "USA",
@@ -179,7 +179,7 @@ export const experience = [
         ],
     },
     {
-        title: "Data Scientist",
+        title: "Machine Learning Engineer",
         company: "TCS / Experian",
         period: "May 2021 - Jul 2023",
         location: "India",

@@ -22,7 +22,7 @@ const experiencesData: Record<string, {
 }> = {
     "keybank": {
         company: "KeyBank",
-        role: "Senior Data Scientist",
+        role: "Machine Learning Engineer",
         period: "2024 — Present",
         location: "USA",
         overview: "Leading enterprise ML initiatives for fraud detection and risk management, building production systems that process 250K+ daily transactions with real-time inference.",
@@ -51,7 +51,7 @@ const experiencesData: Record<string, {
     },
     "niu": {
         company: "Northern Illinois University",
-        role: "Data Scientist (Graduate Research)",
+        role: "Machine Learning Engineer",
         period: "2023 — 2024",
         location: "USA",
         overview: "Conducted research on AI-driven environmental mapping using satellite imagery, resulting in published papers and award-winning models.",
@@ -79,7 +79,7 @@ const experiencesData: Record<string, {
     },
     "tcs-experian": {
         company: "TCS / Experian",
-        role: "Data Scientist",
+        role: "Machine Learning Engineer",
         period: "2021 — 2023",
         location: "India",
         overview: "Built high-throughput fraud scoring systems processing 50M+ monthly events, implementing streaming ML pipelines with sub-100ms latency.",
